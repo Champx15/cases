@@ -1,4 +1,4 @@
-//smart pointers, default constructor no destructor no copy constructor 
+//smart pointers, custom constructor no destructor no copy constructor 
 #include<iostream>
 #include<memory>
 using namespace std;

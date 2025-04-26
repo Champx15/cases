@@ -1,4 +1,5 @@
 //own constructor  destructor copy constructor 
+//update: the object earlier was on the stack, not on heap
 #include<iostream>
 using namespace std;
 class Car{
@@ -16,8 +17,8 @@ public:
     year=new int(y);
    }
    Car(const Car &c){
-    Name=new String(*c.Name);
-    ModelNo=new String(*c.ModelNo);
+    Name=new string(*c.Name);
+    ModelNo=new string(*c.ModelNo);
     year=new int(*c.year);
    }
    ~Car(){
@@ -28,9 +29,12 @@ public:
     
 };
 int main(){
-    Car car1("Alto","35343",343),car2("Mercedes","G class",2014);
-    car1.show();
-    car2.show();
+    Car *car1=new Car("Alto","35343",343),*car2=new Car("Mercedes","G class",2014),*car3=new Car(*car1);
+    car1->Name=new string("Ghoda");
+    car1->show();
+    car2->show();
+    car3->show();
     delete car1;  
+    delete car2;delete car3;
     return 0;
 }
